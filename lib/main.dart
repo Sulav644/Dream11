@@ -1,4 +1,9 @@
+import 'package:dream11_clone/contests/components/contest_list.dart';
+import 'package:dream11_clone/contests/contest_page.dart';
+import 'package:dream11_clone/home_page/home_page.dart';
 import 'package:dream11_clone/login/login_page.dart';
+import 'package:dream11_clone/match/components/match_tabbar_content.dart';
+import 'package:dream11_clone/match/match_selection.dart';
 import 'package:dream11_clone/select_language/select_language_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,13 +21,16 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => SelectLanguageCubit()),
           BlocProvider(create: (context) => MobileNumberEnteredCubit()),
+          BlocProvider(create: (context) => PageStateCubit()),
+          BlocProvider(create: (context) => HideMessageCubit()),
+          BlocProvider(create: (context) => SelectPlayerCubit()),
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.red,
           ),
-          home: const SelectLanguage(),
+          home: const MatchSelection(),
         ));
   }
 }

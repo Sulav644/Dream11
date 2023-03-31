@@ -224,7 +224,10 @@ class ContestList extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Expanded(
-                                      flex: 5,
+                                      flex: element.probablePrice
+                                              .contains('Lakhs')
+                                          ? 5
+                                          : 3,
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -258,9 +261,6 @@ class ContestList extends StatelessWidget {
                                                         .military_tech_outlined,
                                                     size: size,
                                                   )),
-                                              SizedBox(
-                                                width: 4,
-                                              ),
                                               Text(
                                                   '${element.probablePercentage}')
                                             ],

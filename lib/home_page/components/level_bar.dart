@@ -66,7 +66,8 @@ class LevelBar extends StatelessWidget {
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               ...['Level1', 'Level2', 'Level3'].map((e) => Text(
                     e,
-                    style: textStyle(Colors.white, 14, FontWeight.normal),
+                    style: textStyle(Color.fromARGB(255, 212, 211, 211), 14,
+                        FontWeight.normal),
                   ))
             ])
           ],

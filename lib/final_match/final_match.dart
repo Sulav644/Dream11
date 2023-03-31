@@ -173,7 +173,7 @@ class FinalMatch extends StatelessWidget {
                 return Column(
                   children: [
                     GestureDetector(
-                      onTap: () => navigateTo(context, DeepChargers()),
+                      onTap: () => navigateTo(context, ShowCasePage()),
                       child: Container(
                         color: Colors.white,
                         child: Padding(

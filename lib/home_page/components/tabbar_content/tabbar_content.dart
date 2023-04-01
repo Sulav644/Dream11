@@ -267,24 +267,41 @@ class TabbarContent extends StatelessWidget {
                                         children: [
                                           Spacing().horizontalSpace(10),
                                           Container(
-                                              child: Text(
-                                            'MEGA',
-                                            style: textStyle(Colors.green, 14,
-                                                FontWeight.bold),
-                                          )),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.transparent,
+                                                  border: Border.all(
+                                                      color: Colors.green),
+                                                  borderRadius:
+                                                      BorderRadius.circular(6)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(4.0),
+                                                child: Text(
+                                                  'MEGA',
+                                                  style: textStyle(Colors.green,
+                                                      14, FontWeight.bold),
+                                                ),
+                                              )),
                                           Spacing().horizontalSpace(12),
-                                          Container(
-                                              child: Text(
-                                            '₹',
-                                            style: textStyle(Colors.black, 14,
-                                                FontWeight.bold),
-                                          )),
-                                          Container(
-                                              child: Text(
-                                            '${upcomingMatchesList[index].price}',
-                                            style: textStyle(Colors.black, 15,
-                                                FontWeight.bold),
-                                          )),
+                                          Padding(
+                                            padding: const EdgeInsets.all(4.0),
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                    child: Text(
+                                                  '₹',
+                                                  style: textStyle(Colors.black,
+                                                      14, FontWeight.bold),
+                                                )),
+                                                Container(
+                                                    child: Text(
+                                                  '${upcomingMatchesList[index].price}',
+                                                  style: textStyle(Colors.black,
+                                                      15, FontWeight.bold),
+                                                )),
+                                              ],
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),

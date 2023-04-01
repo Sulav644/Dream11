@@ -157,9 +157,13 @@ class ContestList extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text('Prize Pool'), Text('Entry')],
+                        DefaultTextStyle(
+                          style: textStyle(Color.fromARGB(255, 80, 79, 79), 13,
+                              FontWeight.normal),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [Text('Prize Pool'), Text('Entry')],
+                          ),
                         ),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -170,7 +174,7 @@ class ContestList extends StatelessWidget {
                                     Colors.black, 21, FontWeight.bold),
                               ),
                               SizedBox(
-                                  width: 100,
+                                  width: 80,
                                   child: ElevatedButton(
                                       style: ButtonStyle(
                                           backgroundColor:
@@ -183,16 +187,19 @@ class ContestList extends StatelessWidget {
                         Stack(children: [
                           Container(
                             width: screenWidth(context),
-                            height: 6,
+                            height: 4,
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 97, 97, 97),
+                                color: Color.fromARGB(255, 243, 197, 193),
                                 borderRadius: BorderRadius.circular(10)),
                           ),
                           Container(
                             width: screenWidth(context) * element.range,
-                            height: 6,
+                            height: 4,
                             decoration: BoxDecoration(
-                                color: Colors.red,
+                                gradient: LinearGradient(colors: [
+                                  Color.fromARGB(255, 247, 154, 16),
+                                  Color.fromARGB(255, 235, 24, 9)
+                                ]),
                                 borderRadius: BorderRadius.circular(10)),
                           )
                         ]),
@@ -202,8 +209,8 @@ class ContestList extends StatelessWidget {
                             children: [
                               Text(
                                 '${element.leftSpots} spots left',
-                                style: textStyle(
-                                    Colors.red, 12, FontWeight.normal),
+                                style:
+                                    textStyle(Colors.red, 12, FontWeight.bold),
                               ),
                               Text(
                                 '${element.totalSpots}',
@@ -215,102 +222,100 @@ class ContestList extends StatelessWidget {
                             ]),
                         Spacing().verticalSpace(10),
                         DefaultTextStyle(
-                            style:
-                                textStyle(Colors.black, 11, FontWeight.normal),
+                            style: textStyle(Color.fromARGB(255, 73, 72, 72),
+                                11.5, FontWeight.normal),
                             child: Container(
                               width: screenWidth(context),
                               child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Expanded(
-                                      flex: element.probablePrice
-                                              .contains('Lakhs')
-                                          ? 5
-                                          : 3,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Container(
-                                                  decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.black),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              100)),
-                                                  child: Icon(
-                                                    Icons.attach_money_outlined,
-                                                    size: 16,
-                                                  )),
-                                              SizedBox(
-                                                width: 4,
-                                              ),
-                                              Text('₹${element.probablePrice}')
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Container(
-                                                  alignment:
-                                                      Alignment.centerRight,
-                                                  child: Icon(
-                                                    Icons
-                                                        .military_tech_outlined,
-                                                    size: size,
-                                                  )),
-                                              Text(
-                                                  '${element.probablePercentage}')
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Container(
-                                                  decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.black),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              100)),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        vertical: 2.0,
-                                                        horizontal: 3),
-                                                    child: Text('M'),
-                                                  )),
-                                              SizedBox(
-                                                width: 4,
-                                              ),
-                                              Text('${element.playerType}')
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          if (element.isGuaranteed)
+                                    Row(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Container(
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                        color: Color.fromARGB(
+                                                            255, 73, 72, 72)),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100)),
+                                                child: Icon(
+                                                  Icons.attach_money_outlined,
+                                                  color: Color.fromARGB(
+                                                      255, 73, 72, 72),
+                                                  size: 16,
+                                                )),
+                                            SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text('₹${element.probablePrice}')
+                                          ],
+                                        ),
+                                        Spacing().horizontalSpace(10),
+                                        Row(
+                                          children: [
                                             Container(
                                                 alignment:
                                                     Alignment.centerRight,
                                                 child: Icon(
-                                                  Icons.check_circle_outline,
+                                                  Icons.military_tech_outlined,
+                                                  color: Color.fromARGB(
+                                                      255, 73, 72, 72),
                                                   size: size,
                                                 )),
-                                          SizedBox(
-                                            width: 4,
-                                          ),
-                                          if (element.isGuaranteed)
-                                            Text('Guaranteed')
-                                        ],
-                                      ),
+                                            Text(
+                                                '${element.probablePercentage}')
+                                          ],
+                                        ),
+                                        Spacing().horizontalSpace(10),
+                                        Row(
+                                          children: [
+                                            Container(
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                        color: Color.fromARGB(
+                                                            255, 73, 72, 72)),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100)),
+                                                child: Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 2.0,
+                                                      horizontal: 3),
+                                                  child: Text('M'),
+                                                )),
+                                            SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text('${element.playerType}')
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        if (element.isGuaranteed)
+                                          Container(
+                                              alignment: Alignment.centerRight,
+                                              child: Icon(
+                                                Icons.check_circle_outline,
+                                                color: Color.fromARGB(
+                                                    255, 73, 72, 72),
+                                                size: size,
+                                              )),
+                                        SizedBox(
+                                          width: 4,
+                                        ),
+                                        if (element.isGuaranteed)
+                                          Text(
+                                            'Guaranteed',
+                                          )
+                                      ],
                                     ),
                                   ]),
                             ))

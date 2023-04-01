@@ -7,6 +7,7 @@ import 'package:dream11_clone/match/components/match_tabbar_content.dart';
 import 'package:dream11_clone/match/match_selection.dart';
 import 'package:dream11_clone/my_team/my_team.dart';
 import 'package:dream11_clone/select_language/select_language_page.dart';
+import 'package:dream11_clone/slideshow.dart';
 import 'package:dream11_clone/winnings/winnings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.red,
           ),
-          home: const Winnings(),
+          home: const ShowCasePage(),
         ));
   }
 }

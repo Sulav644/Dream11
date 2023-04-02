@@ -1,9 +1,6 @@
-import 'package:dream11_clone/deep_chargers/deep_chargers.dart';
 import 'package:dream11_clone/home_page/components/level_bar.dart';
 import 'package:dream11_clone/my_team/my_team.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../utils.dart';
@@ -85,13 +82,13 @@ class FinalMatch extends StatelessWidget {
   Widget build(BuildContext context) {
     final selectedCaptains = context.watch<SelectCaptainCubit>().state;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 224, 222, 222),
+      backgroundColor: const Color.fromARGB(255, 224, 222, 222),
       appBar: appBar(),
       body: Column(children: [
-        LevelBar(),
+        const LevelBar(),
         Container(
           width: screenWidth(context),
-          color: Color.fromARGB(255, 224, 222, 222),
+          color: const Color.fromARGB(255, 224, 222, 222),
           alignment: Alignment.center,
           child: Column(
             children: [
@@ -106,7 +103,7 @@ class FinalMatch extends StatelessWidget {
         ),
         Container(
           width: screenWidth(context),
-          color: Color.fromARGB(255, 224, 222, 222),
+          color: const Color.fromARGB(255, 224, 222, 222),
           alignment: Alignment.center,
           child: Column(
             children: [
@@ -120,8 +117,8 @@ class FinalMatch extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: DefaultTextStyle(
-              style: textStyle(
-                  Color.fromARGB(255, 104, 103, 103), 13, FontWeight.bold),
+              style: textStyle(const Color.fromARGB(255, 104, 103, 103), 13,
+                  FontWeight.bold),
               child: Row(children: [
                 Container(
                   width: screenWidthOfRatio(context, 0.23),
@@ -132,10 +129,12 @@ class FinalMatch extends StatelessWidget {
                       children: [
                         Text(
                           'TYPE',
-                          style: textStyle(Color.fromARGB(255, 26, 25, 25), 13,
+                          style: textStyle(
+                              const Color.fromARGB(255, 26, 25, 25),
+                              13,
                               FontWeight.bold),
                         ),
-                        Icon(
+                        const Icon(
                           Icons.arrow_downward,
                           color: Color.fromARGB(255, 26, 25, 25),
                           size: 18,
@@ -144,21 +143,23 @@ class FinalMatch extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                     width: screenWidthOfRatio(context, 0.34),
-                    child: Text('POINTS')),
-                Container(
+                    child: const Text('POINTS')),
+                SizedBox(
                     width: screenWidthOfRatio(context, 0.14),
-                    child: Text('% C BY')),
+                    child: const Text('% C BY')),
                 Spacing().horizontalSpaceOfRatio(context, 0.06),
-                Container(
+                SizedBox(
                     width: screenWidthOfRatio(context, 0.2),
                     child: Row(
                       children: [
                         Text(
                           '% VC BY',
-                          style: textStyle(Color.fromARGB(255, 104, 103, 103),
-                              13, FontWeight.bold),
+                          style: textStyle(
+                              const Color.fromARGB(255, 104, 103, 103),
+                              13,
+                              FontWeight.bold),
                         ),
                       ],
                     )),
@@ -173,122 +174,115 @@ class FinalMatch extends StatelessWidget {
                 return Column(
                   children: [
                     GestureDetector(
-                      onTap: () => navigateTo(context, ShowCasePage()),
+                      onTap: () => navigateTo(context, const ShowCasePage()),
                       child: Container(
                         color: Colors.white,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 4.0),
                           child: Row(children: [
-                            Container(
-                              child: Stack(
-                                children: [
-                                  Image.asset(
-                                    '${playersList[index].image}',
-                                    width: screenWidthOfRatio(context, 0.24),
-                                    height: screenWidthOfRatio(context, 0.24),
+                            Stack(
+                              children: [
+                                Image.asset(
+                                  playersList[index].image,
+                                  width: screenWidthOfRatio(context, 0.24),
+                                  height: screenWidthOfRatio(context, 0.24),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 4.0),
+                                  child: SizedBox(
+                                    height: 80,
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Icon(
+                                            Icons.info_outline,
+                                            color: Color.fromARGB(
+                                                255, 104, 103, 103),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    color: playersList[index]
+                                                                .title ==
+                                                            "SCO"
+                                                        ? Colors.white
+                                                        : Colors.black,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            2),
+                                                    boxShadow: const [
+                                                      BoxShadow(
+                                                          color: Color.fromARGB(
+                                                              255,
+                                                              124,
+                                                              123,
+                                                              123),
+                                                          offset: Offset(1, 1),
+                                                          blurRadius: 6)
+                                                    ]),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(4.0),
+                                                  child: Text(
+                                                    playersList[index].title,
+                                                    style: textStyle(
+                                                        playersList[index]
+                                                                    .title ==
+                                                                "SCO"
+                                                            ? Colors.black
+                                                            : Colors.white,
+                                                        11,
+                                                        FontWeight.normal),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            2),
+                                                    boxShadow: const [
+                                                      BoxShadow(
+                                                          color: Color.fromARGB(
+                                                              255,
+                                                              124,
+                                                              123,
+                                                              123),
+                                                          offset: Offset(1, 1),
+                                                          blurRadius: 6)
+                                                    ]),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(4.0),
+                                                  child: Text(
+                                                    playersList[index]
+                                                        .secondTitle,
+                                                    style: textStyle(
+                                                        Colors.black,
+                                                        11,
+                                                        FontWeight.normal),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ]),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 4.0),
-                                    child: Container(
-                                      height: 80,
-                                      child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Icon(
-                                              Icons.info_outline,
-                                              color: Color.fromARGB(
-                                                  255, 104, 103, 103),
-                                            ),
-                                            Row(
-                                              children: [
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                      color: playersList[index]
-                                                                  .title ==
-                                                              "SCO"
-                                                          ? Colors.white
-                                                          : Colors.black,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              2),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                            color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    124,
-                                                                    123,
-                                                                    123),
-                                                            offset:
-                                                                Offset(1, 1),
-                                                            blurRadius: 6)
-                                                      ]),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            4.0),
-                                                    child: Text(
-                                                      '${playersList[index].title}',
-                                                      style: textStyle(
-                                                          playersList[index]
-                                                                      .title ==
-                                                                  "SCO"
-                                                              ? Colors.black
-                                                              : Colors.white,
-                                                          11,
-                                                          FontWeight.normal),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  decoration: BoxDecoration(
-                                                      color: Colors.white,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              2),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                            color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    124,
-                                                                    123,
-                                                                    123),
-                                                            offset:
-                                                                Offset(1, 1),
-                                                            blurRadius: 6)
-                                                      ]),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            4.0),
-                                                    child: Text(
-                                                      '${playersList[index].secondTitle}',
-                                                      style: textStyle(
-                                                          Colors.black,
-                                                          11,
-                                                          FontWeight.normal),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          ]),
-                                    ),
-                                  )
-                                ],
-                              ),
+                                )
+                              ],
                             ),
-                            Container(
+                            SizedBox(
                               width: screenWidthOfRatio(context, 0.34),
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      '${playersList[index].name}',
+                                      playersList[index].name,
                                       style: textStyle(
                                           Colors.black, 14, FontWeight.bold),
                                     ),
@@ -296,7 +290,8 @@ class FinalMatch extends StatelessWidget {
                                     Text(
                                       '${playersList[index].points} pts',
                                       style: textStyle(
-                                          Color.fromARGB(255, 104, 103, 103),
+                                          const Color.fromARGB(
+                                              255, 104, 103, 103),
                                           12,
                                           FontWeight.normal),
                                     ),
@@ -320,7 +315,7 @@ class FinalMatch extends StatelessWidget {
                                               ? Colors.black
                                               : Colors.white,
                                           border: Border.all(
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 104, 103, 103)),
                                           borderRadius:
                                               BorderRadius.circular(100)),
@@ -332,7 +327,7 @@ class FinalMatch extends StatelessWidget {
                                         style: textStyle(
                                             selectedCaptains[0] == index
                                                 ? Colors.white
-                                                : Color.fromARGB(
+                                                : const Color.fromARGB(
                                                     255, 104, 103, 103),
                                             14,
                                             FontWeight.normal),
@@ -345,7 +340,8 @@ class FinalMatch extends StatelessWidget {
                                       child: Text(
                                         '${playersList[index].cPercentage}',
                                         style: textStyle(
-                                            Color.fromARGB(255, 104, 103, 103),
+                                            const Color.fromARGB(
+                                                255, 104, 103, 103),
                                             18,
                                             FontWeight.bold),
                                       )),
@@ -353,7 +349,7 @@ class FinalMatch extends StatelessWidget {
                               ),
                             ),
                             Spacing().horizontalSpaceOfRatio(context, 0.06),
-                            Container(
+                            SizedBox(
                               width: screenWidthOfRatio(context, 0.2),
                               child: Column(
                                 mainAxisAlignment:
@@ -372,7 +368,7 @@ class FinalMatch extends StatelessWidget {
                                               ? Colors.black
                                               : Colors.white,
                                           border: Border.all(
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   255, 104, 103, 103)),
                                           borderRadius:
                                               BorderRadius.circular(100)),
@@ -384,7 +380,7 @@ class FinalMatch extends StatelessWidget {
                                         style: textStyle(
                                             selectedCaptains[1] == index
                                                 ? Colors.white
-                                                : Color.fromARGB(
+                                                : const Color.fromARGB(
                                                     255, 104, 103, 103),
                                             14,
                                             FontWeight.normal),
@@ -397,7 +393,8 @@ class FinalMatch extends StatelessWidget {
                                       child: Text(
                                         '${playersList[index].vcPercentage}',
                                         style: textStyle(
-                                            Color.fromARGB(255, 104, 103, 103),
+                                            const Color.fromARGB(
+                                                255, 104, 103, 103),
                                             18,
                                             FontWeight.bold),
                                       )),
@@ -419,19 +416,19 @@ class FinalMatch extends StatelessWidget {
 
   AppBar appBar() => AppBar(
         title: Row(
-          children: [
+          children: const [
             Text(
               '2h 00m left Clone',
             ),
           ],
         ),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
-              child: Icon(Icons.question_mark),
               backgroundColor: Colors.white,
               radius: 15,
+              child: Icon(Icons.question_mark),
             ),
           )
         ],

@@ -2,8 +2,6 @@ import 'package:dream11_clone/home_page/components/tabbar_content/tabbar_content
 import 'package:dream11_clone/home_page/components/tabbar_content/tabbar_toggler.dart';
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 final tabList = [
   IconWithTitles(title: 'Cricket', icon: Icons.sports_cricket),

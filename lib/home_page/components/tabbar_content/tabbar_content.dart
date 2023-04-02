@@ -1,10 +1,6 @@
 import 'package:dream11_clone/contests/contest_page.dart';
-import 'package:dream11_clone/select_language/components/lined_message.dart';
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
 import 'tabbar.dart';
 
 class UpcomingMatchesList {
@@ -51,9 +47,9 @@ final upcomingMatchesList = [
       timeDuration: '2h 04m',
       price: '8 Crores',
       flagOneColorOne: Colors.orange,
-      flagOneColorTwo: Color.fromARGB(255, 241, 215, 175),
+      flagOneColorTwo: const Color.fromARGB(255, 241, 215, 175),
       flagTwoColorOne: Colors.black,
-      flagTwoColorTwo: Color.fromARGB(255, 175, 174, 174),
+      flagTwoColorTwo: const Color.fromARGB(255, 175, 174, 174),
       showVideo: false),
   UpcomingMatchesList(
       food: 'TNCA Inner Districts',
@@ -66,9 +62,9 @@ final upcomingMatchesList = [
       timeDuration: '1h 48m',
       price: '14 Lakhs',
       flagOneColorOne: Colors.red,
-      flagOneColorTwo: Color.fromARGB(255, 235, 176, 172),
+      flagOneColorTwo: const Color.fromARGB(255, 235, 176, 172),
       flagTwoColorOne: Colors.blue,
-      flagTwoColorTwo: Color.fromARGB(255, 190, 215, 236),
+      flagTwoColorTwo: const Color.fromARGB(255, 190, 215, 236),
       showVideo: true),
   UpcomingMatchesList(
       food: 'Dream11 Clone Nature',
@@ -81,9 +77,9 @@ final upcomingMatchesList = [
       timeDuration: '5h 19m',
       price: '2.7 Crores',
       flagOneColorOne: Colors.yellow,
-      flagOneColorTwo: Color.fromARGB(255, 240, 233, 171),
+      flagOneColorTwo: const Color.fromARGB(255, 240, 233, 171),
       flagTwoColorOne: Colors.green,
-      flagTwoColorTwo: Color.fromARGB(255, 177, 235, 179),
+      flagTwoColorTwo: const Color.fromARGB(255, 177, 235, 179),
       showVideo: true)
 ];
 
@@ -102,7 +98,7 @@ class TabbarContent extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16.0),
                   child: GestureDetector(
-                    onTap: () => navigateTo(context, ContestPage()),
+                    onTap: () => navigateTo(context, const ContestPage()),
                     child: Card(
                       elevation: 6,
                       child: Column(
@@ -112,9 +108,9 @@ class TabbarContent extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                  '${upcomingMatchesList[index].food}',
+                                  upcomingMatchesList[index].food,
                                   style: textStyle(
-                                      Color.fromARGB(255, 124, 123, 123),
+                                      const Color.fromARGB(255, 124, 123, 123),
                                       14,
                                       FontWeight.normal),
                                 ),
@@ -130,10 +126,8 @@ class TabbarContent extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                      '${upcomingMatchesList[index].playerOne}'),
-                                  Text(
-                                      '${upcomingMatchesList[index].playerTwo}'),
+                                  Text(upcomingMatchesList[index].playerOne),
+                                  Text(upcomingMatchesList[index].playerTwo),
                                 ],
                               ),
                             ),
@@ -160,7 +154,7 @@ class TabbarContent extends StatelessWidget {
                                                 begin: Alignment.centerLeft,
                                                 end: Alignment.centerRight)),
                                       ),
-                                      Container(
+                                      SizedBox(
                                         width: 42,
                                         child: Row(
                                           mainAxisAlignment:
@@ -168,7 +162,8 @@ class TabbarContent extends StatelessWidget {
                                           children: [
                                             CircleAvatar(
                                               backgroundImage: AssetImage(
-                                                '${upcomingMatchesList[index].flagOne}',
+                                                upcomingMatchesList[index]
+                                                    .flagOne,
                                               ),
                                               radius: 11,
                                             )
@@ -178,74 +173,70 @@ class TabbarContent extends StatelessWidget {
                                     ],
                                   ),
                                   Spacing().horizontalSpace(10),
-                                  Container(
-                                      child: Text(
-                                    '${upcomingMatchesList[index].countryOne}',
+                                  Text(
+                                    upcomingMatchesList[index].countryOne,
                                     style: textStyle(
                                         Colors.black, 16, FontWeight.bold),
-                                  )),
+                                  ),
                                 ],
                               ),
-                              Container(
-                                  child: Text(
-                                '${upcomingMatchesList[index].timeDuration}',
+                              Text(
+                                upcomingMatchesList[index].timeDuration,
                                 style:
                                     textStyle(Colors.red, 16, FontWeight.bold),
-                              )),
+                              ),
                               Row(
                                 children: [
-                                  Container(
-                                      child: Text(
-                                    '${upcomingMatchesList[index].countryTwo}',
+                                  Text(
+                                    upcomingMatchesList[index].countryTwo,
                                     style: textStyle(
                                         Colors.black, 16, FontWeight.bold),
-                                  )),
+                                  ),
                                   Spacing().horizontalSpace(10),
-                                  Container(
-                                    child: Stack(
-                                      children: [
-                                        Container(
-                                          width: 42,
-                                          alignment: Alignment.centerRight,
-                                          child: Container(
-                                            width: 48,
-                                            height: 22,
-                                            decoration: BoxDecoration(
-                                                gradient: LinearGradient(
-                                                    colors: [
-                                                      upcomingMatchesList[index]
-                                                          .flagTwoColorTwo,
-                                                      upcomingMatchesList[index]
-                                                          .flagTwoColorOne
-                                                    ],
-                                                    begin:
-                                                        Alignment.centerRight,
-                                                    end: Alignment.centerLeft),
-                                                borderRadius: BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10))),
-                                          ),
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        width: 42,
+                                        alignment: Alignment.centerRight,
+                                        child: Container(
+                                          width: 48,
+                                          height: 22,
+                                          decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                  colors: [
+                                                    upcomingMatchesList[index]
+                                                        .flagTwoColorTwo,
+                                                    upcomingMatchesList[index]
+                                                        .flagTwoColorOne
+                                                  ],
+                                                  begin: Alignment.centerRight,
+                                                  end: Alignment.centerLeft),
+                                              borderRadius:
+                                                  const BorderRadius.only(
+                                                      topLeft:
+                                                          Radius.circular(10),
+                                                      bottomLeft:
+                                                          Radius.circular(10))),
                                         ),
-                                        Container(
-                                          width: 42,
-                                          alignment: Alignment.centerRight,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              CircleAvatar(
-                                                backgroundImage: AssetImage(
-                                                  '${upcomingMatchesList[index].flagTwo}',
-                                                ),
-                                                radius: 11,
-                                              )
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
+                                      ),
+                                      Container(
+                                        width: 42,
+                                        alignment: Alignment.centerRight,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            CircleAvatar(
+                                              backgroundImage: AssetImage(
+                                                upcomingMatchesList[index]
+                                                    .flagTwo,
+                                              ),
+                                              radius: 11,
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
                                   )
                                 ],
                               ),
@@ -253,57 +244,54 @@ class TabbarContent extends StatelessWidget {
                           ),
                           Spacing().verticalSpace(18),
                           Container(
-                            color: Color.fromARGB(255, 235, 233, 233),
+                            color: const Color.fromARGB(255, 235, 233, 233),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Spacing().horizontalSpace(10),
-                                          Container(
-                                              decoration: BoxDecoration(
-                                                  color: Colors.transparent,
-                                                  border: Border.all(
-                                                      color: Colors.green),
-                                                  borderRadius:
-                                                      BorderRadius.circular(6)),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: Text(
-                                                  'MEGA',
-                                                  style: textStyle(Colors.green,
-                                                      14, FontWeight.bold),
-                                                ),
-                                              )),
-                                          Spacing().horizontalSpace(12),
-                                          Padding(
-                                            padding: const EdgeInsets.all(4.0),
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                    child: Text(
-                                                  '₹',
-                                                  style: textStyle(Colors.black,
-                                                      14, FontWeight.bold),
-                                                )),
-                                                Container(
-                                                    child: Text(
-                                                  '${upcomingMatchesList[index].price}',
-                                                  style: textStyle(Colors.black,
-                                                      15, FontWeight.bold),
-                                                )),
-                                              ],
-                                            ),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Spacing().horizontalSpace(10),
+                                        Container(
+                                            decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                                border: Border.all(
+                                                    color: Colors.green),
+                                                borderRadius:
+                                                    BorderRadius.circular(6)),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(4.0),
+                                              child: Text(
+                                                'MEGA',
+                                                style: textStyle(Colors.green,
+                                                    14, FontWeight.bold),
+                                              ),
+                                            )),
+                                        Spacing().horizontalSpace(12),
+                                        Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                '₹',
+                                                style: textStyle(Colors.black,
+                                                    14, FontWeight.bold),
+                                              ),
+                                              Text(
+                                                upcomingMatchesList[index]
+                                                    .price,
+                                                style: textStyle(Colors.black,
+                                                    15, FontWeight.bold),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                     Row(
                                       children: [
@@ -311,7 +299,7 @@ class TabbarContent extends StatelessWidget {
                                             .showVideo)
                                           Container(
                                               alignment: Alignment.centerRight,
-                                              child: Icon(
+                                              child: const Icon(
                                                 Icons.video_call_outlined,
                                                 color: Color.fromARGB(
                                                     255, 83, 83, 83),
@@ -319,7 +307,7 @@ class TabbarContent extends StatelessWidget {
                                         Spacing().horizontalSpace(15),
                                         Container(
                                             alignment: Alignment.centerRight,
-                                            child: Icon(
+                                            child: const Icon(
                                                 Icons.airplane_ticket_outlined,
                                                 color: Color.fromARGB(
                                                     255, 83, 83, 83)))
@@ -334,7 +322,7 @@ class TabbarContent extends StatelessWidget {
                   ),
                 );
               })
-          : Text('hello'))
+          : const Text('hello'))
     ]));
   }
 }

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../utils.dart';
 
@@ -98,15 +96,15 @@ class DeepChargers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final alphaBlack = Color.fromARGB(255, 180, 179, 179);
+    const alphaBlack = Color.fromARGB(255, 180, 179, 179);
     return Scaffold(
       appBar: appBar(),
       body: Column(children: [
         Container(
-            color: Color.fromARGB(255, 39, 39, 39),
+            color: const Color.fromARGB(255, 39, 39, 39),
             child: Column(
               children: [
-                Divider(
+                const Divider(
                   color: alphaBlack,
                 ),
                 Padding(
@@ -202,7 +200,7 @@ class DeepChargers extends StatelessWidget {
             children: [
               Container(
                 width: screenWidth(context),
-                color: Color.fromARGB(255, 1, 82, 22),
+                color: const Color.fromARGB(255, 1, 82, 22),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 for (var i = 0; i < 6; i++)
@@ -210,7 +208,7 @@ class DeepChargers extends StatelessWidget {
                     children: [
                       Container(
                         width: screenWidthOfRatio(context, 0.09),
-                        color: Color.fromARGB(255, 1, 94, 29),
+                        color: const Color.fromARGB(255, 1, 94, 29),
                       ),
                     ],
                   ),
@@ -225,10 +223,11 @@ class DeepChargers extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.transparent,
                       border: Border.all(color: Colors.green),
-                      borderRadius: BorderRadius.all(Radius.circular(120))),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(120))),
                 ),
               ),
-              Container(
+              SizedBox(
                 width: screenWidth(context),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -241,7 +240,7 @@ class DeepChargers extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: screenWidth(context),
                 height: screenHeightOfRatio(context, 0.68),
                 child:
@@ -272,14 +271,14 @@ class DeepChargers extends StatelessWidget {
                       ),
                     ]),
               ),
-              Container(
+              SizedBox(
                 width: screenWidth(context),
                 height: screenHeightOfRatio(context, 0.18),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    ...playersListOne.map((e) => Container(
+                    ...playersListOne.map((e) => SizedBox(
                           height: screenHeightOfRatio(context, 0.164),
                           child: Stack(
                             children: [
@@ -299,7 +298,7 @@ class DeepChargers extends StatelessWidget {
                                             : 12.0,
                                         top: 4),
                                     child: Image.asset(
-                                      '${e.image}',
+                                      e.image,
                                       width: screenWidthOfRatio(context, 0.15),
                                       height: screenWidthOfRatio(context, 0.15),
                                     ),
@@ -319,7 +318,7 @@ class DeepChargers extends StatelessWidget {
                                                     : Colors.black,
                                             borderRadius:
                                                 BorderRadius.circular(4),
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                   color: Color.fromARGB(
                                                       255, 65, 64, 64),
@@ -331,7 +330,7 @@ class DeepChargers extends StatelessWidget {
                                             vertical: 5.0,
                                           ),
                                           child: Text(
-                                            '${e.name}',
+                                            e.name,
                                             style: textStyle(
                                                 playersListOne.indexOf(e).isOdd
                                                     ? Colors.black
@@ -351,7 +350,7 @@ class DeepChargers extends StatelessWidget {
                                       width: screenWidthOfRatio(context, 0.24),
                                       alignment: Alignment.center,
                                       child: Text(
-                                        '${e.price}',
+                                        e.price,
                                         style: textStyle(Colors.white, 12,
                                             FontWeight.normal),
                                       ),
@@ -376,7 +375,7 @@ class DeepChargers extends StatelessWidget {
                                                 color:
                                                     playersListOne.indexOf(e) ==
                                                             1
-                                                        ? Color.fromARGB(
+                                                        ? const Color.fromARGB(
                                                             255, 43, 42, 42)
                                                         : Colors.green,
                                                 width: 2.5),
@@ -385,7 +384,7 @@ class DeepChargers extends StatelessWidget {
                                         alignment: Alignment.center,
                                       ),
                                     ),
-                                    Container(
+                                    SizedBox(
                                       width: 27,
                                       height: 62,
                                       child: Column(
@@ -414,14 +413,14 @@ class DeepChargers extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: screenWidth(context),
                 height: screenHeightOfRatio(context, 0.41),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    ...playersListTwo.map((e) => Container(
+                    ...playersListTwo.map((e) => SizedBox(
                           height: screenHeightOfRatio(context, 0.19),
                           child: Stack(
                             children: [
@@ -438,7 +437,7 @@ class DeepChargers extends StatelessWidget {
                                     padding: const EdgeInsets.only(
                                         left: 0.0, top: 2),
                                     child: Image.asset(
-                                      '${e.image}',
+                                      e.image,
                                       width: screenWidthOfRatio(context, 0.15),
                                       height: screenWidthOfRatio(context, 0.15),
                                     ),
@@ -455,7 +454,7 @@ class DeepChargers extends StatelessWidget {
                                                     : Colors.black,
                                             borderRadius:
                                                 BorderRadius.circular(4),
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                   color: Color.fromARGB(
                                                       255, 65, 64, 64),
@@ -467,7 +466,7 @@ class DeepChargers extends StatelessWidget {
                                             vertical: 5.0,
                                           ),
                                           child: Text(
-                                            '${e.name}',
+                                            e.name,
                                             style: textStyle(
                                                 playersListTwo.indexOf(e).isOdd
                                                     ? Colors.black
@@ -479,12 +478,12 @@ class DeepChargers extends StatelessWidget {
                                   ),
                                   Spacing().verticalSpace(4),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 0),
+                                    padding: const EdgeInsets.only(left: 0),
                                     child: Container(
                                       width: screenWidthOfRatio(context, 0.24),
                                       alignment: Alignment.center,
                                       child: Text(
-                                        '${e.price}',
+                                        e.price,
                                         style: textStyle(Colors.white, 12,
                                             FontWeight.normal),
                                       ),
@@ -498,14 +497,14 @@ class DeepChargers extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: screenWidth(context),
                 height: screenHeightOfRatio(context, 0.61),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    ...playersListThree.map((e) => Container(
+                    ...playersListThree.map((e) => SizedBox(
                           height: screenHeightOfRatio(context, 0.19),
                           child: Stack(
                             children: [
@@ -520,7 +519,7 @@ class DeepChargers extends StatelessWidget {
                                     padding: const EdgeInsets.only(
                                         left: 0.0, top: 0),
                                     child: Image.asset(
-                                      '${e.image}',
+                                      e.image,
                                       width: screenWidthOfRatio(context, 0.15),
                                       height: screenWidthOfRatio(context, 0.15),
                                     ),
@@ -532,7 +531,7 @@ class DeepChargers extends StatelessWidget {
                                             color: Colors.black,
                                             borderRadius:
                                                 BorderRadius.circular(4),
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                   color: Color.fromARGB(
                                                       255, 65, 64, 64),
@@ -542,7 +541,7 @@ class DeepChargers extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 5.0, horizontal: 9),
                                           child: Text(
-                                            '${e.name}',
+                                            e.name,
                                             style: textStyle(Colors.white, 11,
                                                 FontWeight.normal),
                                           ),
@@ -550,12 +549,12 @@ class DeepChargers extends StatelessWidget {
                                   ),
                                   Spacing().verticalSpace(4),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 0),
+                                    padding: const EdgeInsets.only(left: 0),
                                     child: Container(
                                       width: screenWidthOfRatio(context, 0.24),
                                       alignment: Alignment.center,
                                       child: Text(
-                                        '${e.price}',
+                                        e.price,
                                         style: textStyle(Colors.white, 12,
                                             FontWeight.normal),
                                       ),
@@ -569,14 +568,14 @@ class DeepChargers extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: screenWidth(context),
                 height: screenHeightOfRatio(context, 0.8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    ...playersListFour.map((e) => Container(
+                    ...playersListFour.map((e) => SizedBox(
                           height: screenHeightOfRatio(context, 0.12),
                           child: Stack(
                             children: [
@@ -586,7 +585,7 @@ class DeepChargers extends StatelessWidget {
                                     padding: const EdgeInsets.only(
                                         left: 0.0, top: 12),
                                     child: Image.asset(
-                                      '${e.image}',
+                                      e.image,
                                       width: screenWidthOfRatio(context, 0.15),
                                       height: screenWidthOfRatio(context, 0.15),
                                     ),
@@ -601,7 +600,7 @@ class DeepChargers extends StatelessWidget {
                                                     : Colors.black,
                                             borderRadius:
                                                 BorderRadius.circular(4),
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                   color: Color.fromARGB(
                                                       255, 65, 64, 64),
@@ -611,7 +610,7 @@ class DeepChargers extends StatelessWidget {
                                           padding: const EdgeInsets.symmetric(
                                               vertical: 5.0, horizontal: 9),
                                           child: Text(
-                                            '${e.name}',
+                                            e.name,
                                             style: textStyle(
                                                 playersListFour.indexOf(e).isOdd
                                                     ? Colors.black
@@ -638,7 +637,7 @@ class DeepChargers extends StatelessWidget {
 
   AppBar appBar() => AppBar(
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 39, 39, 39),
+        backgroundColor: const Color.fromARGB(255, 39, 39, 39),
         title: Text(
           'DEEP CHARGERS...',
           style: textStyle(Colors.white, 18, FontWeight.bold),

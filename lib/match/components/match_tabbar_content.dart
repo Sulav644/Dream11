@@ -1,9 +1,6 @@
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'match_tabbar.dart';
 
 class Players {
@@ -73,58 +70,58 @@ class MatchTabbarContent extends StatelessWidget {
           ...playerList.map((e) => tabController.index == 0
               ? Column(
                   children: [
-                    Container(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12.0, vertical: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Select 1 - 4 Wicket-Keepers',
-                              style:
-                                  textStyle(Colors.black, 16, FontWeight.bold),
-                            ),
-                            Icon(Icons.menu)
-                          ],
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12.0, vertical: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Select 1 - 4 Wicket-Keepers',
+                            style: textStyle(Colors.black, 16, FontWeight.bold),
+                          ),
+                          const Icon(Icons.menu)
+                        ],
                       ),
                     ),
                     Card(
                       elevation: 2,
                       child: Container(
-                        decoration:
-                            BoxDecoration(color: Colors.white, boxShadow: []),
+                        decoration: const BoxDecoration(
+                            color: Colors.white, boxShadow: []),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: DefaultTextStyle(
-                            style: textStyle(Color.fromARGB(255, 104, 103, 103),
-                                14, FontWeight.bold),
+                            style: textStyle(
+                                const Color.fromARGB(255, 104, 103, 103),
+                                14,
+                                FontWeight.bold),
                             child: Row(children: [
                               Container(
                                 width: screenWidthOfRatio(context, 0.24),
                                 height: 2,
                                 color: Colors.white,
                               ),
-                              Container(
+                              SizedBox(
                                   width: screenWidthOfRatio(context, 0.34),
-                                  child: Text('SELECTED BY')),
-                              Container(
+                                  child: const Text('SELECTED BY')),
+                              SizedBox(
                                   width: screenWidthOfRatio(context, 0.14),
-                                  child: Text('POINTS')),
+                                  child: const Text('POINTS')),
                               Spacing().horizontalSpaceOfRatio(context, 0.04),
-                              Container(
+                              SizedBox(
                                   width: screenWidthOfRatio(context, 0.21),
                                   child: Row(
                                     children: [
                                       Text(
                                         'CREDITS',
                                         style: textStyle(
-                                            Color.fromARGB(255, 26, 25, 25),
+                                            const Color.fromARGB(
+                                                255, 26, 25, 25),
                                             14,
                                             FontWeight.bold),
                                       ),
-                                      Icon(
+                                      const Icon(
                                         Icons.arrow_downward,
                                         color: Color.fromARGB(255, 26, 25, 25),
                                         size: 18,
@@ -147,97 +144,92 @@ class MatchTabbarContent extends StatelessWidget {
                                 children: [
                                   Container(
                                     color: selectedPlayer > index
-                                        ? Color.fromARGB(120, 235, 192, 128)
+                                        ? const Color.fromARGB(
+                                            120, 235, 192, 128)
                                         : Colors.white,
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 4.0),
                                       child: Row(children: [
-                                        Container(
-                                          child: Stack(
-                                            children: [
-                                              Image.asset(
-                                                '${playersList[index].image}',
-                                                width: screenWidthOfRatio(
-                                                    context, 0.24),
-                                                height: screenWidthOfRatio(
-                                                    context, 0.24),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 4.0),
-                                                child: Container(
-                                                  height: 80,
-                                                  child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.info_outline,
-                                                          color: Color.fromARGB(
-                                                              255,
-                                                              104,
-                                                              103,
-                                                              103),
-                                                        ),
-                                                        Container(
-                                                          decoration: BoxDecoration(
-                                                              color: playersList[
-                                                                              index]
-                                                                          .title ==
-                                                                      "SCO"
-                                                                  ? Colors.white
-                                                                  : Colors
-                                                                      .black,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          6),
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  color: Color
-                                                                      .fromARGB(
-                                                                          255,
-                                                                          59,
-                                                                          59,
-                                                                          59),
-                                                                  offset:
-                                                                      Offset(
-                                                                          1, 1),
-                                                                  blurRadius: 1,
-                                                                )
-                                                              ]),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(4.0),
-                                                            child: Text(
-                                                              '${playersList[index].title}',
-                                                              style: textStyle(
-                                                                  playersList[index]
-                                                                              .title ==
-                                                                          "SCO"
-                                                                      ? Colors
-                                                                          .black
-                                                                      : Colors
-                                                                          .white,
-                                                                  11,
-                                                                  FontWeight
-                                                                      .normal),
-                                                            ),
+                                        Stack(
+                                          children: [
+                                            Image.asset(
+                                              playersList[index].image,
+                                              width: screenWidthOfRatio(
+                                                  context, 0.24),
+                                              height: screenWidthOfRatio(
+                                                  context, 0.24),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 4.0),
+                                              child: SizedBox(
+                                                height: 80,
+                                                child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      const Icon(
+                                                        Icons.info_outline,
+                                                        color: Color.fromARGB(
+                                                            255, 104, 103, 103),
+                                                      ),
+                                                      Container(
+                                                        decoration: BoxDecoration(
+                                                            color: playersList[
+                                                                            index]
+                                                                        .title ==
+                                                                    "SCO"
+                                                                ? Colors.white
+                                                                : Colors.black,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        6),
+                                                            boxShadow: const [
+                                                              BoxShadow(
+                                                                color: Color
+                                                                    .fromARGB(
+                                                                        255,
+                                                                        59,
+                                                                        59,
+                                                                        59),
+                                                                offset: Offset(
+                                                                    1, 1),
+                                                                blurRadius: 1,
+                                                              )
+                                                            ]),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(4.0),
+                                                          child: Text(
+                                                            playersList[index]
+                                                                .title,
+                                                            style: textStyle(
+                                                                playersList[index]
+                                                                            .title ==
+                                                                        "SCO"
+                                                                    ? Colors
+                                                                        .black
+                                                                    : Colors
+                                                                        .white,
+                                                                11,
+                                                                FontWeight
+                                                                    .normal),
                                                           ),
-                                                        )
-                                                      ]),
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                                        ),
+                                                      )
+                                                    ]),
+                                              ),
+                                            )
+                                          ],
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width:
                                               screenWidthOfRatio(context, 0.34),
                                           child: Column(
@@ -245,7 +237,7 @@ class MatchTabbarContent extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  '${playersList[index].name}',
+                                                  playersList[index].name,
                                                   style: textStyle(Colors.black,
                                                       14, FontWeight.bold),
                                                 ),
@@ -253,7 +245,7 @@ class MatchTabbarContent extends StatelessWidget {
                                                 Text(
                                                   'Sel by ${playersList[index].percentage}%',
                                                   style: textStyle(
-                                                      Color.fromARGB(
+                                                      const Color.fromARGB(
                                                           255, 104, 103, 103),
                                                       12,
                                                       FontWeight.normal),
@@ -291,7 +283,7 @@ class MatchTabbarContent extends StatelessWidget {
                                           child: Text(
                                             '${playersList[index].points}',
                                             style: textStyle(
-                                                Color.fromARGB(
+                                                const Color.fromARGB(
                                                     255, 104, 103, 103),
                                                 16,
                                                 FontWeight.normal),
@@ -299,7 +291,7 @@ class MatchTabbarContent extends StatelessWidget {
                                         ),
                                         Spacing().horizontalSpaceOfRatio(
                                             context, 0.06),
-                                        Container(
+                                        SizedBox(
                                           width:
                                               screenWidthOfRatio(context, 0.2),
                                           child: Row(
@@ -323,9 +315,9 @@ class MatchTabbarContent extends StatelessWidget {
                                                         .remove_circle_outline
                                                     : Icons.add_circle_outline,
                                                 color: selectedPlayer > index
-                                                    ? Color.fromARGB(
+                                                    ? const Color.fromARGB(
                                                         255, 240, 182, 94)
-                                                    : Color.fromARGB(
+                                                    : const Color.fromARGB(
                                                         255, 95, 176, 241),
                                                 size: 28,
                                               ),
@@ -335,7 +327,7 @@ class MatchTabbarContent extends StatelessWidget {
                                       ]),
                                     ),
                                   ),
-                                  Divider(
+                                  const Divider(
                                     height: 1,
                                     color: Color.fromARGB(255, 134, 132, 132),
                                   ),
@@ -346,7 +338,7 @@ class MatchTabbarContent extends StatelessWidget {
                     ),
                   ],
                 )
-              : Text('hello'))
+              : const Text('hello'))
         ],
       ),
     );

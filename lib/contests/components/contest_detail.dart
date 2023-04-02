@@ -1,7 +1,5 @@
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class ContentDetail extends StatelessWidget {
   const ContentDetail({super.key});
@@ -22,7 +20,7 @@ class ContentDetail extends StatelessWidget {
             )),
       ]),
       Spacing().verticalSpace(10),
-      Text(
+      const Text(
         'You will score no points on your selected players in this match because it is fake',
         textAlign: TextAlign.center,
         style: TextStyle(height: 1.7),
@@ -64,7 +62,7 @@ class ContentDetail extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 8.0, top: 10),
                 child: Container(
                   width: screenWidth(context) * 0.56,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       gradient: LinearGradient(
                           colors: [
                             Color.fromARGB(146, 175, 210, 238),
@@ -82,15 +80,15 @@ class ContentDetail extends StatelessWidget {
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('1 Run = 1 point'),
+                          const Text('1 Run = 1 point'),
                           Spacing().verticalSpace(8),
-                          Text('1 Wicket = 25 points'),
+                          const Text('1 Wicket = 25 points'),
                           Spacing().verticalSpace(8),
-                          Text('1 Catch = 8 points'),
+                          const Text('1 Catch = 8 points'),
                           Spacing().verticalSpace(8),
-                          Container(
+                          SizedBox(
                               width: screenWidth(context) * 0.45,
-                              child: Divider(
+                              child: const Divider(
                                 height: 2,
                                 thickness: 2,
                               )),
@@ -100,12 +98,12 @@ class ContentDetail extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colors.black),
                                     borderRadius: BorderRadius.circular(100)),
-                                child: Icon(
+                                child: const Icon(
                                   Icons.more_horiz,
                                   size: 20,
                                 )),
                             Spacing().horizontalSpace(8),
-                            Text('View full point system')
+                            const Text('View full point system')
                           ])
                         ]),
                   ),
@@ -116,7 +114,7 @@ class ContentDetail extends StatelessWidget {
         ],
       ),
       Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             border: Border(
                 top: BorderSide(color: Color.fromARGB(255, 192, 191, 191)))),
         child: Padding(

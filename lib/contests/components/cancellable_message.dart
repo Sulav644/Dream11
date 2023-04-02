@@ -1,7 +1,5 @@
 import 'package:dream11_clone/contests/components/contest_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../utils.dart';
@@ -12,7 +10,7 @@ class CancellableMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
         Color.fromARGB(255, 247, 110, 100),
         Color.fromARGB(255, 238, 224, 223)
@@ -22,18 +20,16 @@ class CancellableMessage extends StatelessWidget {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Expanded(
-              child: Container(
-                  child: Image.asset(
+              child: Image.asset(
             'assets/coin.png',
             width: 50,
             height: 50,
             fit: BoxFit.contain,
-          ))),
+          )),
           Spacing().horizontalSpace(8),
           Expanded(
               flex: 12,
-              child: Container(
-                  child: Row(
+              child: Row(
                 children: [
                   ...'Earn /Fake DreamCoins/ when you join any contest!'
                       .split("/")
@@ -47,13 +43,12 @@ class CancellableMessage extends StatelessWidget {
                                     : FontWeight.normal),
                           )),
                 ],
-              ))),
+              )),
           Expanded(
-              child: Container(
-                  child: GestureDetector(
-                      onTap: () =>
-                          context.read<HideMessageCubit>().toggleHideMessage(),
-                      child: Icon(Icons.close))))
+              child: GestureDetector(
+                  onTap: () =>
+                      context.read<HideMessageCubit>().toggleHideMessage(),
+                  child: const Icon(Icons.close)))
         ]),
       ),
     );

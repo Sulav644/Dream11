@@ -1,7 +1,5 @@
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'package:supercharged/supercharged.dart';
 
@@ -98,7 +96,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Stack(
           children: [
-            Container(
+            SizedBox(
               width: screenWidth(context),
               height: screenHeight(context),
               child: Column(
@@ -134,7 +132,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: screenWidth(context),
               height: screenHeight(context),
               child: Column(
@@ -147,7 +145,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: screenWidth(context),
               height: screenHeight(context),
               child: Column(
@@ -158,7 +156,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               width: screenWidth(context),
               height: screenHeight(context),
               child: Column(
@@ -170,7 +168,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                   Container(
                     width: screenWidthOfRatio(context, 0.42),
                     height: screenHeightOfRatio(context, 0.07),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         gradient: LinearGradient(
                       colors: [Color.fromARGB(190, 53, 52, 52), Colors.black],
                       begin: Alignment.topCenter,
@@ -184,7 +182,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: screenHeight(context),
               child: PageView(
                   controller: pageController,
@@ -195,7 +193,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                     startAnimation(context);
                   },
                   children: [
-                    Container(
+                    SizedBox(
                       width: screenWidth(context),
                       height: screenHeight(context),
                       child: Column(
@@ -213,7 +211,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: screenWidth(context),
                       height: screenHeight(context),
                       child: Column(
@@ -231,7 +229,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: screenWidth(context),
                       height: screenHeight(context),
                       child: Column(
@@ -251,7 +249,7 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                     ),
                   ]),
             ),
-            Container(
+            SizedBox(
               height: screenHeightOfRatio(context, 0.9),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -265,7 +263,8 @@ class _SlideShowState extends State<SlideShow> with TickerProviderStateMixin {
                               decoration: BoxDecoration(
                                   color: smallScreens.indexOf(e) == index
                                       ? Colors.white
-                                      : Color.fromARGB(255, 163, 161, 161),
+                                      : const Color.fromARGB(
+                                          255, 163, 161, 161),
                                   borderRadius: BorderRadius.circular(100)),
                             ),
                             Spacing().horizontalSpace(6),

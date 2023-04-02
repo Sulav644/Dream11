@@ -1,11 +1,7 @@
-import 'package:dream11_clone/contests/components/cancellable_message.dart';
 import 'package:dream11_clone/contests/components/contest_detail.dart';
 import 'package:dream11_clone/contests/components/contest_list.dart';
 import 'package:dream11_clone/home_page/components/level_bar.dart';
-import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum PageState { contentList, contentDetail }
@@ -16,13 +12,13 @@ class ContestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pageState = context.watch<PageStateCubit>().state;
-    final pages = [ContestList(), ContentDetail()];
+    final pages = [const ContestList(), const ContentDetail()];
     return Scaffold(
       appBar: appBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            LevelBar(),
+            const LevelBar(),
             pages[PageState.values.indexOf(pageState)],
           ],
         ),
@@ -31,9 +27,9 @@ class ContestPage extends StatelessWidget {
   }
 
   AppBar appBar() => AppBar(
-        title: Text('Contests Clone'),
+        title: const Text('Contests Clone'),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.card_giftcard))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.card_giftcard))
         ],
       );
 }

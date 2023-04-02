@@ -1,7 +1,5 @@
 import 'package:dream11_clone/contests/contest_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../utils.dart';
@@ -131,7 +129,7 @@ class ContestList extends StatelessWidget {
     double size = 18;
 
     return Column(children: [
-      if (!hideMessage) CancellableMessage(),
+      if (!hideMessage) const CancellableMessage(),
       Padding(
         padding: const EdgeInsets.all(14.0),
         child: Column(
@@ -158,11 +156,13 @@ class ContestList extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(children: [
                         DefaultTextStyle(
-                          style: textStyle(Color.fromARGB(255, 80, 79, 79), 13,
+                          style: textStyle(
+                              const Color.fromARGB(255, 80, 79, 79),
+                              13,
                               FontWeight.normal),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [Text('Prize Pool'), Text('Entry')],
+                            children: const [Text('Prize Pool'), Text('Entry')],
                           ),
                         ),
                         Row(
@@ -189,14 +189,14 @@ class ContestList extends StatelessWidget {
                             width: screenWidth(context),
                             height: 4,
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 243, 197, 193),
+                                color: const Color.fromARGB(255, 243, 197, 193),
                                 borderRadius: BorderRadius.circular(10)),
                           ),
                           Container(
                             width: screenWidth(context) * element.range,
                             height: 4,
                             decoration: BoxDecoration(
-                                gradient: LinearGradient(colors: [
+                                gradient: const LinearGradient(colors: [
                                   Color.fromARGB(255, 247, 154, 16),
                                   Color.fromARGB(255, 235, 24, 9)
                                 ]),
@@ -213,18 +213,20 @@ class ContestList extends StatelessWidget {
                                     textStyle(Colors.red, 12, FontWeight.bold),
                               ),
                               Text(
-                                '${element.totalSpots}',
+                                element.totalSpots,
                                 style: textStyle(
-                                    Color.fromARGB(255, 85, 84, 84),
+                                    const Color.fromARGB(255, 85, 84, 84),
                                     12,
                                     FontWeight.normal),
                               ),
                             ]),
                         Spacing().verticalSpace(10),
                         DefaultTextStyle(
-                            style: textStyle(Color.fromARGB(255, 73, 72, 72),
-                                11.5, FontWeight.normal),
-                            child: Container(
+                            style: textStyle(
+                                const Color.fromARGB(255, 73, 72, 72),
+                                11.5,
+                                FontWeight.normal),
+                            child: SizedBox(
                               width: screenWidth(context),
                               child: Row(
                                   mainAxisAlignment:
@@ -237,18 +239,19 @@ class ContestList extends StatelessWidget {
                                             Container(
                                                 decoration: BoxDecoration(
                                                     border: Border.all(
-                                                        color: Color.fromARGB(
+                                                        color: const Color
+                                                                .fromARGB(
                                                             255, 73, 72, 72)),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
-                                                child: Icon(
+                                                child: const Icon(
                                                   Icons.attach_money_outlined,
                                                   color: Color.fromARGB(
                                                       255, 73, 72, 72),
                                                   size: 16,
                                                 )),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 4,
                                             ),
                                             Text('₹${element.probablePrice}')
@@ -262,12 +265,11 @@ class ContestList extends StatelessWidget {
                                                     Alignment.centerRight,
                                                 child: Icon(
                                                   Icons.military_tech_outlined,
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 73, 72, 72),
                                                   size: size,
                                                 )),
-                                            Text(
-                                                '${element.probablePercentage}')
+                                            Text(element.probablePercentage)
                                           ],
                                         ),
                                         Spacing().horizontalSpace(10),
@@ -276,22 +278,22 @@ class ContestList extends StatelessWidget {
                                             Container(
                                                 decoration: BoxDecoration(
                                                     border: Border.all(
-                                                        color: Color.fromARGB(
+                                                        color: const Color
+                                                                .fromARGB(
                                                             255, 73, 72, 72)),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             100)),
-                                                child: Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
+                                                child: const Padding(
+                                                  padding: EdgeInsets.symmetric(
                                                       vertical: 2.0,
                                                       horizontal: 3),
                                                   child: Text('M'),
                                                 )),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 4,
                                             ),
-                                            Text('${element.playerType}')
+                                            Text(element.playerType)
                                           ],
                                         ),
                                       ],
@@ -304,15 +306,15 @@ class ContestList extends StatelessWidget {
                                               alignment: Alignment.centerRight,
                                               child: Icon(
                                                 Icons.check_circle_outline,
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 73, 72, 72),
                                                 size: size,
                                               )),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 4,
                                         ),
                                         if (element.isGuaranteed)
-                                          Text(
+                                          const Text(
                                             'Guaranteed',
                                           )
                                       ],

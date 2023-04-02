@@ -1,10 +1,6 @@
-import 'package:dream11_clone/contests/components/contest_list.dart';
 import 'package:dream11_clone/contests/contest_page.dart';
-import 'package:dream11_clone/deep_chargers/deep_chargers.dart';
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 class ShowCasePage extends StatelessWidget {
@@ -46,8 +42,9 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final tabList = ['Contests', 'My Contests', 'My Teams'];
+
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 235, 233, 233),
+      backgroundColor: const Color.fromARGB(255, 235, 233, 233),
       appBar: appBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,24 +54,24 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
             color: Colors.white,
             child: TabBar(
                 controller: tabController,
-                indicatorPadding: EdgeInsets.only(left: 12, top: 5, bottom: 5),
-                labelPadding: EdgeInsets.only(left: 12, top: 5, bottom: 5),
+                indicatorPadding:
+                    const EdgeInsets.only(left: 12, top: 5, bottom: 5),
+                labelPadding:
+                    const EdgeInsets.only(left: 12, top: 5, bottom: 5),
                 indicatorWeight: 6,
                 isScrollable: true,
                 tabs: [
                   ...tabList.map(
-                    (e) => Container(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 6.0),
-                        child: Text(
-                          '$e',
-                          style: textStyle(
-                              tabList.indexOf(e) == tabController.index
-                                  ? Color.fromARGB(255, 177, 19, 8)
-                                  : Color.fromARGB(255, 77, 75, 75),
-                              14,
-                              FontWeight.bold),
-                        ),
+                    (e) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6.0),
+                      child: Text(
+                        e,
+                        style: textStyle(
+                            tabList.indexOf(e) == tabController.index
+                                ? const Color.fromARGB(255, 177, 19, 8)
+                                : const Color.fromARGB(255, 77, 75, 75),
+                            14,
+                            FontWeight.bold),
                       ),
                     ),
                   ),
@@ -91,14 +88,14 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                         horizontal: 8.0, vertical: 4),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(130, 212, 230, 245),
+                          color: const Color.fromARGB(130, 212, 230, 245),
                           borderRadius: BorderRadius.circular(4)),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8.0, vertical: 4),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
+                            children: const [
                               Text('Share this contest with your friends!'),
                               Icon(Icons.share_outlined)
                             ]),
@@ -114,10 +111,10 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                               context: context,
                               builder: (context) {
                                 return AlertDialog(
-                                  contentPadding: EdgeInsets.symmetric(
+                                  contentPadding: const EdgeInsets.symmetric(
                                       horizontal: 18, vertical: 8),
-                                  insetPadding:
-                                      EdgeInsets.symmetric(horizontal: 24),
+                                  insetPadding: const EdgeInsets.symmetric(
+                                      horizontal: 24),
                                   content: SingleChildScrollView(
                                     child: Column(children: [
                                       Row(
@@ -128,7 +125,7 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                                           GestureDetector(
                                               onTap: () =>
                                                   Navigator.of(context).pop(),
-                                              child: Icon(
+                                              child: const Icon(
                                                 Icons.close,
                                                 size: 20,
                                                 color: Color.fromARGB(
@@ -151,7 +148,7 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                                           Text(
                                             'Account Added',
                                             style: textStyle(
-                                                Color.fromARGB(
+                                                const Color.fromARGB(
                                                     255, 116, 114, 114),
                                                 12,
                                                 FontWeight.bold),
@@ -184,7 +181,7 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Icon(
+                                                const Icon(
                                                   Icons.gif_box,
                                                   color: Colors.red,
                                                 ),
@@ -198,7 +195,7 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                                             ),
                                             Row(
                                               children: [
-                                                Icon(
+                                                const Icon(
                                                   Icons.info_outline,
                                                   color: Colors.blue,
                                                 ),
@@ -232,7 +229,8 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                                         'By agreeing on the terms and conditions you give us access to daily transactions you make and other things we require',
                                         textAlign: TextAlign.center,
                                         style: textStyle(
-                                            Color.fromARGB(255, 129, 126, 126),
+                                            const Color.fromARGB(
+                                                255, 129, 126, 126),
                                             12,
                                             FontWeight.bold),
                                       ),
@@ -264,7 +262,7 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                             child: Stack(children: [
                               Container(
                                 height: screenHeightOfRatio(context, 0.2),
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: Color.fromARGB(255, 1, 82, 22),
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(10),
@@ -281,275 +279,273 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                                         height:
                                             screenHeightOfRatio(context, 0.2),
                                         decoration: BoxDecoration(
-                                            color:
-                                                Color.fromARGB(255, 1, 94, 29),
+                                            color: const Color.fromARGB(
+                                                255, 1, 94, 29),
                                             borderRadius: BorderRadius.only(
                                                 topLeft: i == 0
-                                                    ? Radius.circular(10)
-                                                    : Radius.circular(0),
+                                                    ? const Radius.circular(10)
+                                                    : const Radius.circular(0),
                                                 topRight: i == 5
-                                                    ? Radius.circular(10)
-                                                    : Radius.circular(0))),
+                                                    ? const Radius.circular(10)
+                                                    : const Radius.circular(
+                                                        0))),
                                       ),
                                   ]),
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                        height:
-                                            screenHeightOfRatio(context, 0.2) /
-                                                3.6,
-                                        decoration: BoxDecoration(
-                                            color:
-                                                Color.fromARGB(245, 5, 29, 5),
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              topRight: Radius.circular(10),
-                                            )),
-                                        child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              DefaultTextStyle(
-                                                style: textStyle(Colors.white,
-                                                    14, FontWeight.normal),
-                                                child: Row(
-                                                  children: [
-                                                    Spacing()
-                                                        .horizontalSpace(10),
-                                                    Text('DEEP CHARGE...'),
-                                                    Spacing()
-                                                        .horizontalSpace(10),
-                                                    Text('(T1)'),
-                                                  ],
-                                                ),
-                                              ),
-                                              Row(
+                              Column(
+                                children: [
+                                  Container(
+                                      height:
+                                          screenHeightOfRatio(context, 0.2) /
+                                              3.6,
+                                      decoration: const BoxDecoration(
+                                          color: Color.fromARGB(245, 5, 29, 5),
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          )),
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            DefaultTextStyle(
+                                              style: textStyle(Colors.white, 14,
+                                                  FontWeight.normal),
+                                              child: Row(
                                                 children: [
-                                                  Icon(
-                                                    Icons.edit,
-                                                    color: Colors.white,
-                                                  ),
                                                   Spacing().horizontalSpace(10),
-                                                  Icon(Icons.copy,
-                                                      color: Colors.white),
+                                                  const Text('DEEP CHARGE...'),
                                                   Spacing().horizontalSpace(10),
-                                                  Icon(Icons.share,
-                                                      color: Colors.white),
-                                                  Spacing().horizontalSpace(10),
+                                                  const Text('(T1)'),
                                                 ],
                                               ),
-                                            ])),
-                                    Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              ...[
-                                                ['SCO', '4'],
-                                                ['THU', '7']
-                                              ].map((e) => Row(
-                                                    children: [
-                                                      Spacing()
-                                                          .horizontalSpaceOfRatio(
-                                                              context, 0.05),
-                                                      Container(
-                                                        height:
-                                                            screenHeightOfRatio(
-                                                                    context,
-                                                                    0.2) /
-                                                                1.4,
-                                                        child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Text(
-                                                                '${e[0]}',
-                                                                style: textStyle(
-                                                                    Colors
-                                                                        .white,
-                                                                    13.5,
-                                                                    FontWeight
-                                                                        .bold),
-                                                              ),
-                                                              Spacing()
-                                                                  .verticalSpace(
-                                                                      8),
-                                                              Text(
-                                                                '${e[1]}',
-                                                                style: textStyle(
-                                                                    Colors
-                                                                        .white,
-                                                                    24,
-                                                                    FontWeight
-                                                                        .bold),
-                                                              )
-                                                            ]),
-                                                      ),
-                                                    ],
-                                                  )),
-                                            ],
-                                          ),
-                                          Row(children: [
-                                            ...[
-                                              [
-                                                'C',
-                                                'assets/iron_man.png',
-                                                'J Ingis'
+                                            ),
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.edit,
+                                                  color: Colors.white,
+                                                ),
+                                                Spacing().horizontalSpace(10),
+                                                const Icon(Icons.copy,
+                                                    color: Colors.white),
+                                                Spacing().horizontalSpace(10),
+                                                const Icon(Icons.share,
+                                                    color: Colors.white),
+                                                Spacing().horizontalSpace(10),
                                               ],
-                                              [
-                                                'VC',
-                                                'assets/captain_america.png',
-                                                'M Golker'
-                                              ]
+                                            ),
+                                          ])),
+                                  Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ...[
+                                              ['SCO', '4'],
+                                              ['THU', '7']
                                             ].map((e) => Row(
                                                   children: [
-                                                    Container(
-                                                      child: Stack(children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  left: 8.0),
-                                                          child: Container(
-                                                            height:
-                                                                screenHeightOfRatio(
-                                                                        context,
-                                                                        0.2) /
-                                                                    1.4,
-                                                            child: Column(
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceEvenly,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .only(
-                                                                      top: 6),
-                                                                  child:
-                                                                      Container(
-                                                                    child: Image
-                                                                        .asset(
-                                                                      '${e[1]}',
-                                                                      width: 66,
-                                                                      height:
-                                                                          66,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding:
-                                                                      const EdgeInsets
-                                                                          .only(),
-                                                                  child:
-                                                                      Container(
-                                                                          decoration: BoxDecoration(
-                                                                              color: e[0].length == 1 ? Colors.white : Colors.black,
-                                                                              borderRadius: BorderRadius.circular(4),
-                                                                              boxShadow: [
-                                                                                BoxShadow(color: Color.fromARGB(255, 65, 64, 64), offset: Offset(1, 1))
-                                                                              ]),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.symmetric(vertical: 3.0, horizontal: 16),
-                                                                            child:
-                                                                                Text(
-                                                                              '${e[2]}',
-                                                                              style: textStyle(e[0].length == 1 ? Colors.black : Colors.white, 12, FontWeight.normal),
-                                                                            ),
-                                                                          )),
-                                                                )
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 8.0),
-                                                          child: Stack(
-                                                            children: [
-                                                              Container(
-                                                                width: 26,
-                                                                height: 26,
-                                                                decoration: BoxDecoration(
-                                                                    color: e[0].length ==
-                                                                            1
-                                                                        ? Colors
-                                                                            .white
-                                                                        : Colors
-                                                                            .black,
-                                                                    border: Border.all(
-                                                                        color: e[0].length ==
-                                                                                1
-                                                                            ? Color.fromARGB(
-                                                                                255,
-                                                                                43,
-                                                                                42,
-                                                                                42)
-                                                                            : Colors
-                                                                                .green,
-                                                                        width:
-                                                                            2.5),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            100)),
-                                                                alignment:
-                                                                    Alignment
-                                                                        .center,
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                        .only(),
-                                                                child:
-                                                                    Container(
-                                                                  width: 26,
-                                                                  height: 26,
-                                                                  child: Column(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      Text(
-                                                                        '${e[0]}',
-                                                                        style: textStyle(
-                                                                            e[0].length == 1
-                                                                                ? Colors.black
-                                                                                : Colors.white,
-                                                                            13,
-                                                                            FontWeight.bold),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              )
-                                                            ],
-                                                          ),
-                                                        )
-                                                      ]),
-                                                    ),
                                                     Spacing()
                                                         .horizontalSpaceOfRatio(
-                                                            context, 0.03),
+                                                            context, 0.05),
+                                                    SizedBox(
+                                                      height:
+                                                          screenHeightOfRatio(
+                                                                  context,
+                                                                  0.2) /
+                                                              1.4,
+                                                      child: Column(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Text(
+                                                              e[0],
+                                                              style: textStyle(
+                                                                  Colors.white,
+                                                                  13.5,
+                                                                  FontWeight
+                                                                      .bold),
+                                                            ),
+                                                            Spacing()
+                                                                .verticalSpace(
+                                                                    8),
+                                                            Text(
+                                                              e[1],
+                                                              style: textStyle(
+                                                                  Colors.white,
+                                                                  24,
+                                                                  FontWeight
+                                                                      .bold),
+                                                            )
+                                                          ]),
+                                                    ),
                                                   ],
-                                                ))
-                                          ])
+                                                )),
+                                          ],
+                                        ),
+                                        Row(children: [
+                                          ...[
+                                            [
+                                              'C',
+                                              'assets/iron_man.png',
+                                              'J Ingis'
+                                            ],
+                                            [
+                                              'VC',
+                                              'assets/captain_america.png',
+                                              'M Golker'
+                                            ]
+                                          ].map((e) => Row(
+                                                children: [
+                                                  Stack(children: [
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left:
+                                                              screenWidthOfRatio(
+                                                                  context,
+                                                                  0.04)),
+                                                      child: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 6),
+                                                            child: Image.asset(
+                                                              e[1],
+                                                              width: 65,
+                                                              height: 65,
+                                                            ),
+                                                          ),
+                                                          Container(
+                                                              decoration: BoxDecoration(
+                                                                  color: e[0].length ==
+                                                                          1
+                                                                      ? Colors.white
+                                                                      : Colors.black,
+                                                                  borderRadius: BorderRadius.circular(4),
+                                                                  boxShadow: const [
+                                                                    BoxShadow(
+                                                                        color: Color.fromARGB(
+                                                                            255,
+                                                                            65,
+                                                                            64,
+                                                                            64),
+                                                                        offset: Offset(
+                                                                            1,
+                                                                            1))
+                                                                  ]),
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    vertical: 3,
+                                                                    horizontal:
+                                                                        16),
+                                                                child: Text(
+                                                                  e[2],
+                                                                  style: textStyle(
+                                                                      e[0].length == 1
+                                                                          ? Colors
+                                                                              .black
+                                                                          : Colors
+                                                                              .white,
+                                                                      12,
+                                                                      FontWeight
+                                                                          .normal),
+                                                                ),
+                                                              ))
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              top: 8.0),
+                                                      child: Stack(
+                                                        children: [
+                                                          Container(
+                                                            width: 26,
+                                                            height: 26,
+                                                            decoration: BoxDecoration(
+                                                                color: e[0]
+                                                                            .length ==
+                                                                        1
+                                                                    ? Colors
+                                                                        .white
+                                                                    : Colors
+                                                                        .black,
+                                                                border: Border.all(
+                                                                    color: e[0].length ==
+                                                                            1
+                                                                        ? const Color.fromARGB(
+                                                                            255,
+                                                                            43,
+                                                                            42,
+                                                                            42)
+                                                                        : Colors
+                                                                            .green,
+                                                                    width: 2.5),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            100)),
+                                                            alignment: Alignment
+                                                                .center,
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .only(),
+                                                            child: SizedBox(
+                                                              width: 26,
+                                                              height: 26,
+                                                              child: Column(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Text(
+                                                                    e[0],
+                                                                    style: textStyle(
+                                                                        e[0].length ==
+                                                                                1
+                                                                            ? Colors
+                                                                                .black
+                                                                            : Colors
+                                                                                .white,
+                                                                        13,
+                                                                        FontWeight
+                                                                            .bold),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ]),
+                                                  Spacing()
+                                                      .horizontalSpaceOfRatio(
+                                                          context, 0.03),
+                                                ],
+                                              ))
                                         ])
-                                  ],
-                                ),
+                                      ]),
+                                ],
                               ),
                             ]),
                           ),
                           Container(
                             height: screenHeightOfRatio(context, 0.046),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(10),
@@ -579,15 +575,16 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
                                         if (e[0] == 'WK')
                                           Spacing().horizontalSpace(20),
                                         Text(
-                                          '${e[0]}',
+                                          e[0],
                                           style: textStyle(
-                                              Color.fromARGB(255, 94, 92, 92),
+                                              const Color.fromARGB(
+                                                  255, 94, 92, 92),
                                               14,
                                               FontWeight.normal),
                                         ),
                                         Spacing().horizontalSpace(6),
                                         Text(
-                                          '${e[1]}',
+                                          e[1],
                                           style: textStyle(Colors.black, 14,
                                               FontWeight.bold),
                                         ),
@@ -627,14 +624,14 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
           Showcase(
               key: keyOne,
               description: 'See team field',
-              descriptionPadding: EdgeInsets.symmetric(vertical: 8),
+              descriptionPadding: const EdgeInsets.symmetric(vertical: 8),
               tooltipBackgroundColor: Colors.blue,
               child: IconButton(
                   onPressed: () {
-                    navigateTo(context, ContestPage());
+                    navigateTo(context, const ContestPage());
                   },
-                  icon: Icon(Icons.notification_add))),
-          IconButton(onPressed: () {}, icon: Icon(Icons.save))
+                  icon: const Icon(Icons.notification_add))),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.save))
         ],
       );
 }

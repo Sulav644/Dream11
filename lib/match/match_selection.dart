@@ -1,13 +1,9 @@
 import 'dart:math';
-
 import 'package:dream11_clone/home_page/components/level_bar.dart';
-import 'package:dream11_clone/home_page/components/tabbar_content/tabbar.dart';
 import 'package:dream11_clone/match/components/match_tabbar.dart';
 import 'package:dream11_clone/match/components/match_tabbar_content.dart';
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Footer {
@@ -37,7 +33,7 @@ class _MatchSelectionState extends State<MatchSelection>
   @override
   Widget build(BuildContext context) {
     final selectedPlayer = context.watch<SelectPlayerCubit>().state;
-    Color alphaBlack = Color.fromARGB(255, 105, 104, 104);
+    Color alphaBlack = const Color.fromARGB(255, 105, 104, 104);
     final styleForNumbers = textStyle(Colors.white, 14, FontWeight.normal);
     final styleForTitles = textStyle(alphaBlack, 14, FontWeight.bold);
     final whiteColor = textStyle(Colors.white, 14, FontWeight.normal);
@@ -57,7 +53,7 @@ class _MatchSelectionState extends State<MatchSelection>
     return Scaffold(
       appBar: appBar(),
       body: Column(children: [
-        LevelBar(),
+        const LevelBar(),
         Container(
           alignment: Alignment.center,
           color: Colors.black,
@@ -99,7 +95,7 @@ class _MatchSelectionState extends State<MatchSelection>
                               ]),
                           Row(
                             children: [
-                              CircleAvatar(
+                              const CircleAvatar(
                                 backgroundImage: AssetImage(
                                   'assets/united-kingdom.png',
                                 ),
@@ -138,7 +134,7 @@ class _MatchSelectionState extends State<MatchSelection>
                                     ),
                                   ]),
                               Spacing().horizontalSpace(15),
-                              CircleAvatar(
+                              const CircleAvatar(
                                 backgroundImage: AssetImage(
                                     'assets/united-states-of-america.png'),
                                 radius: 14,
@@ -213,7 +209,7 @@ class _MatchSelectionState extends State<MatchSelection>
                 ),
               ),
               Spacing().verticalSpace(10),
-              Divider(
+              const Divider(
                 height: 2,
                 color: Colors.white,
               ),
@@ -266,14 +262,14 @@ class _MatchSelectionState extends State<MatchSelection>
 
   AppBar appBar() => AppBar(
         title: Row(
-          children: [
+          children: const [
             Text(
               '2h 00m left Clone',
             ),
           ],
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.question_mark))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.question_mark))
         ],
       );
 }

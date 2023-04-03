@@ -1,3 +1,4 @@
+import 'package:dream11_clone/my_team/my_team.dart';
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -84,51 +85,55 @@ class MatchTabbarContent extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Card(
-                      elevation: 2,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            color: Colors.white, boxShadow: []),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: DefaultTextStyle(
-                            style: textStyle(
-                                const Color.fromARGB(255, 104, 103, 103),
-                                14,
-                                FontWeight.bold),
-                            child: Row(children: [
-                              Container(
-                                width: screenWidthOfRatio(context, 0.24),
-                                height: 2,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                  width: screenWidthOfRatio(context, 0.34),
-                                  child: const Text('SELECTED BY')),
-                              SizedBox(
-                                  width: screenWidthOfRatio(context, 0.14),
-                                  child: const Text('POINTS')),
-                              Spacing().horizontalSpaceOfRatio(context, 0.04),
-                              SizedBox(
-                                  width: screenWidthOfRatio(context, 0.21),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        'CREDITS',
-                                        style: textStyle(
-                                            const Color.fromARGB(
-                                                255, 26, 25, 25),
-                                            14,
-                                            FontWeight.bold),
-                                      ),
-                                      const Icon(
-                                        Icons.arrow_downward,
-                                        color: Color.fromARGB(255, 26, 25, 25),
-                                        size: 18,
-                                      )
-                                    ],
-                                  )),
-                            ]),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Card(
+                        elevation: 2,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              color: Colors.white, boxShadow: []),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: DefaultTextStyle(
+                              style: textStyle(
+                                  const Color.fromARGB(255, 104, 103, 103),
+                                  14,
+                                  FontWeight.bold),
+                              child: Row(children: [
+                                Container(
+                                  width: screenWidthOfRatio(context, 0.24),
+                                  height: 2,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                    width: screenWidthOfRatio(context, 0.34),
+                                    child: const Text('SELECTED BY')),
+                                SizedBox(
+                                    width: screenWidthOfRatio(context, 0.14),
+                                    child: const Text('POINTS')),
+                                Spacing().horizontalSpaceOfRatio(context, 0.04),
+                                SizedBox(
+                                    width: screenWidthOfRatio(context, 0.21),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          'CREDITS',
+                                          style: textStyle(
+                                              const Color.fromARGB(
+                                                  255, 26, 25, 25),
+                                              14,
+                                              FontWeight.bold),
+                                        ),
+                                        const Icon(
+                                          Icons.arrow_downward,
+                                          color:
+                                              Color.fromARGB(255, 26, 25, 25),
+                                          size: 18,
+                                        )
+                                      ],
+                                    )),
+                              ]),
+                            ),
                           ),
                         ),
                       ),

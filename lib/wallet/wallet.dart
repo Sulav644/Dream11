@@ -1,7 +1,6 @@
 import 'package:dream11_clone/utils.dart';
+import 'package:dream11_clone/wallet/verify_account.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Wallet extends StatelessWidget {
   const Wallet({super.key});
@@ -11,8 +10,8 @@ class Wallet extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Column(children: [
-        Text('Total Balance'),
-        Text('₹5,051.37'),
+        const Text('Total Balance'),
+        const Text('₹5,051.37'),
         ElevatedButton(
             style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(
@@ -20,8 +19,8 @@ class Wallet extends StatelessWidget {
                     horizontal: screenWidthOfRatio(context, 0.03)),
                 backgroundColor: Colors.green),
             onPressed: () {},
-            child: Text('ADD CASH')),
-        Divider(),
+            child: const Text('ADD CASH')),
+        const Divider(),
         balanceField(
             context: context,
             title: 'AMOUNT ADDED (UNAUTHORIZED)',
@@ -63,11 +62,11 @@ class Wallet extends StatelessWidget {
           ? ListTile(
               title: Text(title),
               subtitle: Text(subtitle),
-              trailing: Icon(Icons.arrow_forward_ios),
+              trailing: const Icon(Icons.arrow_forward_ios),
             )
           : ListTile(
               title: Text(title),
-              trailing: Icon(Icons.arrow_forward_ios),
+              trailing: const Icon(Icons.arrow_forward_ios),
             );
 
   Widget balanceField(
@@ -94,19 +93,19 @@ class Wallet extends StatelessWidget {
                           horizontal: screenWidthOfRatio(context, 0.03)),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
-                          side: BorderSide(color: Colors.black)),
+                          side: const BorderSide(color: Colors.black)),
                       backgroundColor: Colors.white),
-                  onPressed: () {},
+                  onPressed: () => navigateTo(context, const VerifyAccounut()),
                   child: Text(
                     'VERIFY NOW',
                     style: textStyle(Colors.black, 14, FontWeight.normal),
                   )),
-            Icon(Icons.info_outline)
+            const Icon(Icons.info_outline)
           ]),
           if (showVerify)
             Row(
               children: [
-                Container(
+                SizedBox(
                     width: screenWidthOfRatio(context, 0.5),
                     child: Text(
                       'Verify your account to be eligibe to verification',
@@ -123,7 +122,7 @@ class Wallet extends StatelessWidget {
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(6)),
                   child: Row(children: [
-                    Icon(Icons.money),
+                    const Icon(Icons.money),
                     Column(children: [
                       Text('Maximum usable Cash Bonus per match = 10%',
                           style:
@@ -132,7 +131,7 @@ class Wallet extends StatelessWidget {
                         Text('of Entry Fees',
                             style:
                                 textStyle(Colors.black, 11, FontWeight.normal)),
-                        Text(
+                        const Text(
                           'Know more',
                           style: TextStyle(
                               decoration: TextDecoration.underline,
@@ -142,7 +141,7 @@ class Wallet extends StatelessWidget {
                         )
                       ])
                     ]),
-                    Icon(Icons.close)
+                    const Icon(Icons.close)
                   ]),
                 ),
               ],

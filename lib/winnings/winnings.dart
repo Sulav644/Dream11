@@ -239,9 +239,9 @@ class _WinningsState extends State<Winnings> with TickerProviderStateMixin {
           Padding(
             padding: EdgeInsets.only(right: 16.0),
             child: CircleAvatar(
-              child: Icon(Icons.question_mark),
               backgroundColor: Colors.white,
               radius: 15,
+              child: Icon(Icons.question_mark),
             ),
           ),
         ],

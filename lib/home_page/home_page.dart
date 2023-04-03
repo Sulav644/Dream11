@@ -29,33 +29,34 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             accountSection(
+                context: context,
                 icon: accountIcon(),
                 title: 'Alex Warren',
                 subtitle: 'Level 127',
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_forward_ios,
                   color: Colors.white,
                 )),
             GestureDetector(
-              onTap: () => navigateTo(context, Wallet()),
+              onTap: () => navigateTo(context, const Wallet()),
               child: navItem(
-                  icon: Icon(Icons.wallet),
+                  icon: const Icon(Icons.wallet),
                   title: 'My Balance',
-                  child: Text('₹39')),
+                  child: const Text('₹39')),
             ),
             navItem(
-                icon: Icon(Icons.money),
+                icon: const Icon(Icons.money),
                 title: 'Earn₹100',
                 child: navButton(
                     title: 'INVITE',
-                    titleColor: Colors.black,
+                    titleColor: Color.fromARGB(255, 32, 32, 32),
                     btnColor: Colors.white,
-                    borderColor: Colors.black,
+                    borderColor: Color.fromARGB(255, 66, 65, 65),
                     vPadding: 4,
-                    hPadding: 4,
+                    hPadding: 7,
                     borderRadius: 6)),
             navItem(
-                icon: Icon(Icons.star),
+                icon: const Icon(Icons.star),
                 title: 'Series Leaderboard',
                 child: navButton(
                     title: 'NEW',
@@ -66,11 +67,11 @@ class HomePage extends StatelessWidget {
                     hPadding: 3,
                     borderRadius: 4)),
             GestureDetector(
-              onTap: () => navigateTo(context, Settings()),
+              onTap: () => navigateTo(context, const Settings()),
               child: navItem(
-                  icon: Icon(Icons.settings),
+                  icon: const Icon(Icons.settings),
                   title: 'My Info & Settings',
-                  child: Text('')),
+                  child: const Text('')),
             )
           ],
         ),
@@ -80,10 +81,16 @@ class HomePage extends StatelessWidget {
 
   Widget accountIcon() => Stack(
         children: [
-          CircleAvatar(),
+          const CircleAvatar(
+            backgroundImage: AssetImage(
+              'assets/portal.png',
+            ),
+            backgroundColor: Colors.white,
+            radius: 25,
+          ),
           Container(
-            width: 50,
-            height: 40,
+            width: 60,
+            height: 50,
             alignment: Alignment.bottomRight,
             child: Container(
               width: 25,
@@ -92,7 +99,7 @@ class HomePage extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(100)),
               alignment: Alignment.center,
-              child: Icon(
+              child: const Icon(
                 Icons.camera_alt,
                 size: 18,
               ),
@@ -111,23 +118,24 @@ class HomePage extends StatelessWidget {
         trailing: child,
       );
   Widget accountSection(
-          {required Widget icon,
+          {required BuildContext context,
+          required Widget icon,
           required String title,
           required String subtitle,
           required Widget child}) =>
       Container(
-        height: 80,
+        height: screenHeightOfRatio(context, 0.15),
         color: Colors.black,
         alignment: Alignment.bottomCenter,
         child: ListTile(
           leading: icon,
           title: Text(
             title,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
           subtitle: Text(
             subtitle,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
           trailing: child,
         ),
@@ -158,8 +166,8 @@ class HomePage extends StatelessWidget {
         leading: Builder(builder: (BuildContext context) {
           return GestureDetector(
               onTap: () => Scaffold.of(context).openDrawer(),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: CircleAvatar(),
               ));
         }),

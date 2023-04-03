@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../utils.dart';
 
 class Components {
@@ -20,7 +18,7 @@ class Components {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: screenHeightOfRatio(context, 0.13),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,11 +28,11 @@ class Components {
                           title,
                           style: textStyle(Colors.black, 16, FontWeight.bold),
                         ),
-                        Container(
+                        SizedBox(
                             width: screenWidthOfRatio(context, 0.7),
                             child: Text(subtitle,
                                 style: textStyle(
-                                    Color.fromARGB(255, 63, 63, 63),
+                                    const Color.fromARGB(255, 63, 63, 63),
                                     14,
                                     FontWeight.normal)))
                       ],

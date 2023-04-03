@@ -1,9 +1,5 @@
 import 'package:dream11_clone/settings/privacy_settings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
 import '../utils.dart';
 
 class Settings extends StatefulWidget {
@@ -51,7 +47,7 @@ class _SettingsState extends State<Settings> {
           ),
         ),
         GestureDetector(
-            onTap: () => navigateTo(context, PrivacySettings()),
+            onTap: () => navigateTo(context, const PrivacySettings()),
             child: settingHeader(context: context)),
         Padding(
           padding: EdgeInsets.symmetric(
@@ -87,35 +83,33 @@ class _SettingsState extends State<Settings> {
           required String subtitle,
           required bool isOn,
           required bool showNewTag}) =>
-      Container(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-              vertical: screenHeightOfRatio(context, 0.02)),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          title,
-                          style: textStyle(Colors.black, 19, FontWeight.normal),
-                        ),
-                        if (showNewTag) newTag()
-                      ],
-                    ),
-                    if (subtitle.isNotEmpty)
-                      Container(
-                          width: screenWidthOfRatio(context, 0.7),
-                          child: Text(subtitle))
-                  ],
-                ),
-                switchButton(index: index, switchType: isOn)
-              ]),
-        ),
+      Padding(
+        padding:
+            EdgeInsets.symmetric(vertical: screenHeightOfRatio(context, 0.02)),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        title,
+                        style: textStyle(Colors.black, 19, FontWeight.normal),
+                      ),
+                      if (showNewTag) newTag()
+                    ],
+                  ),
+                  if (subtitle.isNotEmpty)
+                    SizedBox(
+                        width: screenWidthOfRatio(context, 0.7),
+                        child: Text(subtitle))
+                ],
+              ),
+              switchButton(index: index, switchType: isOn)
+            ]),
       );
   Widget newTag() => Row(children: [
         Spacing().horizontalSpaceOfRatio(context, 0.01),
@@ -151,13 +145,13 @@ class _SettingsState extends State<Settings> {
                 width: 38,
                 height: 15,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 207, 202, 202),
+                    color: const Color.fromARGB(255, 207, 202, 202),
                     borderRadius: BorderRadius.circular(10)),
                 alignment: Alignment.centerLeft,
               ),
             ),
             AnimatedContainer(
-              duration: Duration(milliseconds: 120),
+              duration: const Duration(milliseconds: 120),
               width: 38,
               height: 25,
               alignment:
@@ -168,7 +162,7 @@ class _SettingsState extends State<Settings> {
                 decoration: BoxDecoration(
                     color: Colors.green,
                     borderRadius: BorderRadius.circular(100),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                           color: Color.fromARGB(255, 27, 27, 27),
                           offset: Offset(0.8, 3),
@@ -185,7 +179,7 @@ class _SettingsState extends State<Settings> {
       );
 
   Widget settingHeader({required BuildContext context}) => Container(
-        color: Color.fromARGB(255, 241, 239, 239),
+        color: const Color.fromARGB(255, 241, 239, 239),
         child: Padding(
           padding: EdgeInsets.symmetric(
               vertical: screenHeightOfRatio(context, 0.018),
@@ -201,7 +195,7 @@ class _SettingsState extends State<Settings> {
                 newTag()
               ],
             ),
-            Icon(
+            const Icon(
               Icons.arrow_forward_ios,
               color: Color.fromARGB(255, 58, 57, 57),
             )
@@ -211,7 +205,7 @@ class _SettingsState extends State<Settings> {
 
   Widget genderField({required BuildContext context}) =>
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('Gender'),
+        const Text('Gender'),
         Spacing().verticalSpaceOfRatio(context, 0.01),
         Row(
           children: [
@@ -239,8 +233,8 @@ class _SettingsState extends State<Settings> {
           enabled: false,
           decoration: InputDecoration(
               prefixIcon: Icon(icon),
-              contentPadding: EdgeInsets.all(8),
-              border: OutlineInputBorder()),
+              contentPadding: const EdgeInsets.all(8),
+              border: const OutlineInputBorder()),
         ),
       );
 
@@ -258,9 +252,9 @@ class _SettingsState extends State<Settings> {
             Text(
               title,
               style: textStyle(
-                  Color.fromARGB(255, 75, 74, 74), 14, FontWeight.normal),
+                  const Color.fromARGB(255, 75, 74, 74), 14, FontWeight.normal),
             ),
-            Container(
+            SizedBox(
               height: screenHeightOfRatio(context, 0.04),
               child: TextField(
                 controller: TextEditingController(text: hintText),
@@ -272,14 +266,14 @@ class _SettingsState extends State<Settings> {
                           top: screenHeightOfRatio(context, 0.01)),
                       child: Text(
                         showChange ? 'Change' : '',
-                        style: textStyle(Color.fromARGB(255, 53, 52, 52), 14,
-                            FontWeight.bold),
+                        style: textStyle(const Color.fromARGB(255, 53, 52, 52),
+                            14, FontWeight.bold),
                       ),
                     ),
-                    contentPadding: EdgeInsets.only(top: 0),
-                    border: UnderlineInputBorder()),
-                style: textStyle(
-                    Color.fromARGB(255, 75, 74, 74), 14, FontWeight.normal),
+                    contentPadding: const EdgeInsets.only(top: 0),
+                    border: const UnderlineInputBorder()),
+                style: textStyle(const Color.fromARGB(255, 75, 74, 74), 14,
+                    FontWeight.normal),
               ),
             )
           ],

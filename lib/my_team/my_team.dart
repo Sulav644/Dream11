@@ -1,4 +1,5 @@
 import 'package:dream11_clone/contests/contest_page.dart';
+import 'package:dream11_clone/deep_chargers/deep_chargers.dart';
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:showcaseview/showcaseview.dart';
@@ -628,7 +629,7 @@ class _MyTeamState extends State<MyTeam> with TickerProviderStateMixin {
               tooltipBackgroundColor: Colors.blue,
               child: IconButton(
                   onPressed: () {
-                    navigateTo(context, const ContestPage());
+                    navigateTo(context, const DeepChargers());
                   },
                   icon: const Icon(Icons.notification_add))),
           IconButton(onPressed: () {}, icon: const Icon(Icons.save))

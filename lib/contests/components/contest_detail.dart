@@ -1,3 +1,5 @@
+import 'package:dream11_clone/final_match/final_match.dart';
+import 'package:dream11_clone/my_team/my_team.dart';
 import 'package:dream11_clone/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -122,7 +124,7 @@ class ContentDetail extends StatelessWidget {
           child: ElevatedButton(
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.green)),
-              onPressed: () {},
+              onPressed: () => navigateTo(context, FinalMatch()),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(

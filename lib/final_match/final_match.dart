@@ -1,4 +1,5 @@
 import 'package:dream11_clone/home_page/components/level_bar.dart';
+import 'package:dream11_clone/match/match_selection.dart';
 import 'package:dream11_clone/my_team/my_team.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -174,7 +175,7 @@ class FinalMatch extends StatelessWidget {
                 return Column(
                   children: [
                     GestureDetector(
-                      onTap: () => navigateTo(context, const ShowCasePage()),
+                      onTap: () => navigateTo(context, const MatchSelection()),
                       child: Container(
                         color: Colors.white,
                         child: Padding(
